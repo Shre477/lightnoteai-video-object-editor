@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+backend/storage/uploads/*
+backend/storage/outputs/*
+backend/storage/frames/*
+!backend/storage/uploads/.gitkeep
+!backend/storage/outputs/.gitkeep
+!backend/storage/frames/.gitkeep
+backend/models/*.pth
+.DS_Store
+node_modules/

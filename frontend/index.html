@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LightNoteAI - AI Video Object Editor</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>AI Video Object Editor</h1>
+    <p class="subtitle">Upload a video, describe the edit in plain English, and watch it happen.</p>
+
+    <form id="job-form">
+      <label>
+        Video file
+        <input type="file" id="video" accept="video/*" />
+      </label>
+
+      <div class="or-divider">or</div>
+
+      <label>
+        Video URL
+        <input type="url" id="video-url" placeholder="https://example.com/video.mp4" />
+      </label>
+
+      <label>
+        Reference image (optional)
+        <input type="file" id="reference" accept="image/*" />
+      </label>
+
+      <label>
+        Editing prompt
+        <input type="text" id="prompt" placeholder='e.g. "Replace the Coca-Cola bottle with Pepsi"' required />
+      </label>
+
+      <button type="submit" id="start-btn">Start Processing</button>
+    </form>
+
+    <section id="status-section" hidden>
+      <h2>Status</h2>
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+      <p id="status-text"></p>
+      <details id="parsed-instruction-wrap" hidden>
+        <summary>What the AI understood</summary>
+        <pre id="parsed-instruction"></pre>
+      </details>
+    </section>
+
+    <section id="result-section" hidden>
+      <h2>Result</h2>
+      <video id="result-video" controls></video>
+      <a id="download-link" download>Download output video</a>
+    </section>
+
+    <p id="error-text" class="error" hidden></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
